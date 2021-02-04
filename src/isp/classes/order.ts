@@ -3,6 +3,7 @@ import { ShoppingCart } from './shopping-cart';
 import { Messaging } from '../services/messaging';
 import { Persistency } from '../services/persistency';
 import { CustomerOrder } from './interfaces/customer-protocol';
+import { AddressProtocol } from './interfaces/address-protocol';
 
 export class Order {
   private _orderStatus: OrderStatus = 'open';
@@ -12,6 +13,7 @@ export class Order {
     private readonly messaging: Messaging,
     private readonly persistency: Persistency,
     private readonly customer: CustomerOrder,
+    private readonly address: AddressProtocol
   ) {}
 
   get orderStatus(): OrderStatus {

@@ -10,6 +10,7 @@ import { Persistency } from './services/persistency';
 import { Product } from './classes/product';
 import { NoDiscount } from './classes/discount';
 import { EnterpriseCustomer } from './classes/customer';
+import { Address } from './classes/address'
 
 // const fiftyPercentDiscount = new FiftyPercentDiscount();
 // const tenPercentDiscount = new TenPercentDiscount();
@@ -17,6 +18,14 @@ const noDiscount = new NoDiscount();
 const shoppingCart = new ShoppingCart(noDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
+const address = new Address(
+  'Rua santo antonio',
+  55,
+  'ponta grossa',
+  'maceió',
+  'AL',
+  ''
+);
 // const individualCustomer = new IndividualCustomer(
 //   'Luiz',
 //   'Miranda',
@@ -31,6 +40,7 @@ const order = new Order(
   messaging,
   persistency,
   enterpriseCustomer,
+  address
 );
 
 shoppingCart.addItem(new Product('Camiseta', 49.91));
@@ -40,6 +50,7 @@ shoppingCart.addItem(new Product('Lápis', 1.59));
 console.log(shoppingCart.items);
 console.log(shoppingCart.total());
 console.log(shoppingCart.totalWithDicount());
+console.log(address.getAddres());
 console.log(order.orderStatus);
 order.checkout();
 console.log(order.orderStatus);
